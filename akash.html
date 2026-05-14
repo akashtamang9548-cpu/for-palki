@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Palak ❤️</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  min-height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#080014,#21002f,#3b0052);
+  color:white;
+  padding:15px;
+}
+
+.stars,.hearts{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+.star{
+  position:absolute;
+  width:3px;
+  height:3px;
+  background:white;
+  border-radius:50%;
+  opacity:.3;
+  animation:twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+  50%{
+    opacity:1;
+    transform:scale(1.8);
+  }
+}
+
+.heart{
+  position:absolute;
+  bottom:-30px;
+  font-size:24px;
+  animation:floatUp 7s linear infinite;
+}
+
+@keyframes floatUp{
+  from{
+    transform:translateY(0);
+    opacity:0;
+  }
+
+  20%{
+    opacity:1;
+  }
+
+  to{
+    transform:translateY(-110vh);
+    opacity:0;
+  }
+}
+
+.card{
+  width:min(94%,470px);
+  max-height:95vh;
+  overflow-y:auto;
+  padding:28px;
+  border-radius:34px;
+  text-align:center;
+  position:relative;
+  z-index:5;
+  background:rgba(255,255,255,0.09);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.18);
+  box-shadow:0 0 35px rgba(255,100,180,0.25);
+}
+
+.progress{
+  height:8px;
+  background:rgba(255,255,255,0.15);
+  border-radius:20px;
+  overflow:hidden;
+  margin-bottom:25px;
+}
+
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#ff4b91,#ffd1ff);
+  transition:.4s;
+}
+
+.slide{
+  display:none;
+  animation:fade .7s ease;
+}
+
+.slide.active{
+  display:block;
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  to{
+    opacity:1;
+  }
+}
+
+h1{
+  font-size:35px;
+  margin-bottom:18px;
+  background:linear-gradient(135deg,#ff9a9e,#ffd1ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+h2{
+  font-size:28px;
+  margin-bottom:18px;
+  color:#ffd6ef;
+}
+
+p{
+  font-size:18px;
+  line-height:1.8;
+  margin-bottom:22px;
+}
+
+.first-slide-images{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin-bottom:24px;
+}
+
+.first-slide-images img{
+  width:48%;
+  height:260px;
+  object-fit:cover;
+  border-radius:24px;
+  box-shadow:0 14px 35px rgba(0,0,0,.45);
+}
+
+.single-photo{
+  width:100%;
+  max-width:300px;
+  height:270px;
+  object-fit:cover;
+  border-radius:26px;
+  margin-bottom:22px;
+  box-shadow:0 14px 35px rgba(0,0,0,.45);
+}
+
+.image-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  margin:25px 0;
+  padding:0 10px;
+}
+
+.image-grid img{
+  width:100%;
+  height:165px;
+  object-fit:cover;
+  border-radius:22px;
+  box-shadow:0 12px 28px rgba(0,0,0,.35);
+}
+
+button{
+  border:none;
+  padding:14px 28px;
+  border-radius:999px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.main-btn{
+  background:linear-gradient(135deg,#ff4b91,#ff8fb1);
+  color:white;
+  box-shadow:0 10px 25px rgba(255,75,145,.35);
+}
+
+.main-btn:hover{
+  transform:scale(1.05);
+}
+
+.secondary-btn{
+  background:rgba(255,255,255,.15);
+  color:white;
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  min-height:70px;
+  position:relative;
+}
+
+.message-box{
+  background:rgba(255,255,255,.1);
+  padding:20px;
+  border-radius:22px;
+  line-height:1.8;
+  margin:18px 0;
+}
+
+ol{
+  text-align:left;
+  padding-left:25px;
+  line-height:1.8;
+}
+
+.final-heart{
+  font-size:60px;
+  animation:beat 1s infinite;
+  margin:18px 0;
+}
+
+@keyframes beat{
+  50%{
+    transform:scale(1.2);
+  }
+}
+
+@media(max-width:480px){
+
+  .card{
+    padding:22px;
+    border-radius:28px;
+  }
+
+  h1{
+    font-size:28px;
+  }
+
+  h2{
+    font-size:23px;
+  }
+
+  p{
+    font-size:15px;
+  }
+
+  .first-slide-images img{
+    height:220px;
+  }
+
+  .single-photo{
+    height:240px;
+    max-width:260px;
+  }
+
+  .image-grid img{
+    height:125px;
+  }
+
+  button{
+    padding:12px 22px;
+    font-size:15px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="/html/music/perfect.mpeg" type="audio/mpeg">
+</audio>
+
+<div class="stars" id="stars"></div>
+<div class="hearts" id="hearts"></div>
+
+<div class="card">
+
+<div class="progress">
+  <div class="progress-fill" id="progressFill"></div>
+</div>
+
+<!-- SLIDE 0 -->
+<section class="slide active" id="slide0">
+
+  <div class="first-slide-images">
+
+    <img src="/html/image/palak1.jpeg" alt="photo">
+    <img src="/html/image/palak2.jpeg" alt="photo">
+
+  </div>
+
+  <h2>Hey Madam Palak ✨</h2>
+
+  <p>
+    I made this little page only for you,
+    because some people are not just special,
+    they slowly become the most beautiful
+    part of someone’s heart. ❤️✨
+  </p>
+
+  <div class="buttons">
+
+    <button class="main-btn"
+    onclick="nextSlide()">
+      Continue 💖
+    </button>
+
+    <button class="secondary-btn"
+    id="runBtn"
+    ontouchstart="moveButton()"
+    onmouseover="moveButton()"
+    onclick="moveButton()">
+      Ignore Me 😶
+    </button>
+
+  </div>
+
+</section>
+
+<!-- SLIDE 1 -->
+<section class="slide" id="slide1">
+
+  <h1>Honestly...</h1>
+
+  <img class="single-photo"
+  src="/html/image/palak3.jpeg"
+  alt="photo">
+
+  <p>
+    Your presence feels different in the most beautiful way 🌸✨.
+    Even the smallest conversation with you somehow
+    makes my whole day feel lighter and happier 💖
+  </p>
+
+  <button class="main-btn"
+  onclick="nextSlide()">
+    Next 🌸
+  </button>
+
+</section>
+
+<!-- SLIDE 2 -->
+<section class="slide" id="slide2">
+
+  <h2>You became my favorite thought</h2>
+
+  <img class="single-photo"
+  src="/html/image/palak4.jpeg"
+  alt="photo">
+
+  <div class="message-box">
+    I do not know exactly when it happened,
+    but slowly you became someone who stays
+    in my thoughts 🌸💖
+  </div>
+
+  <button class="main-btn"
+  onclick="nextSlide()">
+    Keep Going 💌
+  </button>
+
+</section>
+
+<!-- SLIDE 3 -->
+<section class="slide" id="slide3">
+
+  <h2>Things I Like About You 🌙</h2>
+
+  <img class="single-photo"
+  src="/html/image/palak5.jpeg"
+  alt="photo">
+
+  <div class="message-box">
+
+    <ol>
+      <li>Everything about you feels special ✨</li>
+      <li>Your smile is my favorite thing 💖</li>
+      <li>You feel like my favorite person 🌙</li>
+      <li>You make my days better ❤️</li>
+    </ol>
+
+  </div>
+
+  <button class="main-btn"
+  onclick="nextSlide()">
+    Continue ✨
+  </button>
+
+</section>
+
+<!-- SLIDE 4 -->
+<section class="slide" id="slide4">
+
+  <h1>You Know What? 💭</h1>
+
+  <img class="single-photo"
+  src="/html/image/palak6.jpeg"
+  alt="photo">
+
+  <p>
+    Sometimes I catch myself smiling at my phone
+    like an idiot... and then I realize,
+    it is because of you ❤️
+  </p>
+
+  <button class="main-btn"
+  onclick="nextSlide()">
+    Continue 🌸
+  </button>
+
+</section>
+
+<!-- SLIDE 5 -->
+<section class="slide" id="slide5">
+
+  <h1>Little Things ✨</h1>
+
+  <img class="single-photo"
+  src="/html/image/palak7.jpeg"
+  alt="photo">
+
+  <p>
+    It is the little things about you that stay in my mind,
+    your smile, your vibe, your talks,
+    and the way you unknowingly make my day better 💖
+  </p>
+
+  <button class="main-btn"
+  onclick="nextSlide()">
+    One Last Thing 💌
+  </button>
+
+</section>
+
+<!-- FINAL SLIDE -->
+<section class="slide" id="slide6">
+
+  <h1>One Last Thing...</h1>
+
+  <div class="image-grid">
+
+    <img src="/html/image/palak8.jpeg" alt="photo">
+    <img src="/html/image/palak9.jpeg" alt="photo">
+    <img src="/html/image/palak10.jpeg" alt="photo">
+    <img src="/html/image/paklak11.jpeg" alt="photo">
+
+  </div>
+
+  <p>
+    Palak, talking to you makes my days better,
+    and somehow you became someone really special to me ❤️
+  </p>
+
+  <div class="final-heart">💖</div>
+
+  <div class="buttons">
+
+    <button class="main-btn"
+    onclick="showLove()">
+      Awww 🥺
+    </button>
+
+    <button class="main-btn"
+    onclick="restartExperience()">
+      Replay
+    </button>
+
+  </div>
+
+</section>
+
+</div>
+
+<script>
+
+let currentSlide = 0;
+const totalSlides = 7;
+let musicStarted = false;
+
+function updateProgress(){
+
+  document.getElementById("progressFill")
+  .style.width =
+  ((currentSlide + 1) / totalSlides)
+  * 100 + "%";
+}
+
+function showSlide(index){
+
+  document.querySelectorAll(".slide")
+  .forEach(slide=>{
+
+    slide.classList.remove("active");
+
+  });
+
+  document.getElementById("slide"+index)
+  .classList.add("active");
+
+  updateProgress();
+}
+
+function nextSlide(){
+
+  if(!musicStarted){
+
+    const music =
+    document.getElementById("bgMusic");
+
+    music.volume = 0.7;
+
+    music.play().catch(()=>{
+
+      console.log("Music blocked");
+
+    });
+
+    musicStarted = true;
+  }
+
+  if(currentSlide < totalSlides - 1){
+
+    currentSlide++;
+
+    showSlide(currentSlide);
+  }
+}
+
+function restartExperience(){
+
+  currentSlide = 0;
+
+  showSlide(currentSlide);
+}
+
+function moveButton(){
+
+  const btn =
+  document.getElementById("runBtn");
+
+  const card =
+  document.querySelector(".card");
+
+  const maxX =
+  card.clientWidth - btn.offsetWidth - 40;
+
+  const maxY =
+  card.clientHeight - btn.offsetHeight - 40;
+
+  btn.style.position = "absolute";
+
+  btn.style.left =
+  Math.max(10,
+  Math.random() * maxX) + "px";
+
+  btn.style.top =
+  Math.max(10,
+  Math.random() * maxY) + "px";
+}
+
+function showLove(){
+
+  alert("Palak, you are genuinely special to me ❤️");
+}
+
+function createStars(){
+
+  const box =
+  document.getElementById("stars");
+
+  for(let i=0;i<100;i++){
+
+    const star =
+    document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left =
+    Math.random()*100 + "vw";
+
+    star.style.top =
+    Math.random()*100 + "vh";
+
+    star.style.animationDelay =
+    Math.random()*3 + "s";
+
+    box.appendChild(star);
+  }
+}
+
+function floatingHearts(){
+
+  const heart =
+  document.createElement("div");
+
+  heart.className = "heart";
+
+  heart.innerHTML =
+  ["💖","💕","✨","🌸"]
+  [Math.floor(Math.random()*4)];
+
+  heart.style.left =
+  Math.random()*100 + "vw";
+
+  heart.style.animationDuration =
+  5 + Math.random()*4 + "s";
+
+  document.getElementById("hearts")
+  .appendChild(heart);
+
+  setTimeout(()=>{
+
+    heart.remove();
+
+  },9000);
+}
+
+createStars();
+
+setInterval(floatingHearts,700);
+
+updateProgress();
+
+</script>
+
+</body>
+</html>
